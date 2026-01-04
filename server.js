@@ -13,7 +13,7 @@ const server = http.createServer(app)
 /* ✅ FIXED SOCKET.IO CORS */
 export const io = new Server(server, {
   cors: {
-    origin: "*",
+  origin: "https://mern-real-time-chat-app-opal.vercel.app",
   }
 })
 
@@ -35,7 +35,10 @@ io.on("connection", (socket) => {
 })
 
 /* ✅ FIXED EXPRESS CORS */
-app.use(cors())
+app.use(cors({
+    origin: "https://mern-real-time-chat-app-opal.vercel.app",
+
+}))
 
 app.use(express.json({ limit: "4mb" }))
 
